@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rotem Atari</title>
-  <meta name="description" content="Rotem Atari, PhD candidate at Tel Aviv University. Robotic manipulation of cables and other deformable linear objects, tactile sensing, and system identification.">
+  <meta name="description" content="Rotem Atari, Ph.D. candidate at Tel Aviv University. Robot learning and perception for cables and other deformable linear objects: tactile sensing, learned dynamics and manipulation.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,59 +15,53 @@
       <img class="avatar" src="assets/photo.jpg" alt="Rotem Atari" width="132" height="132">
       <div class="intro__text">
         <h1>Rotem Atari</h1>
-        <p class="role">PhD Candidate, Tel Aviv University</p>
-        <p class="advisor">Advised by Prof. Avishai Sintov</p>
+        <p class="role">Ph.D. Candidate, Mechanical Engineering, Tel Aviv University</p>
+        <p class="advisor">ROB-TAU Robotics Lab · Advisor: Prof. Avishai Sintov</p>
         <nav class="links" aria-label="Contact and profiles">
           <a href="mailto:rotematari@tauex.tau.ac.il">Email</a>
+          <a href="https://scholar.google.com/citations?user=WZOyjvQAAAAJ">Google Scholar</a>
           <a href="https://github.com/rotematari">GitHub</a>
-          <!-- Add when ready:
-          <a href="https://scholar.google.com/citations?user=...">Google Scholar</a>
-          <a href="https://www.linkedin.com/in/...">LinkedIn</a>
-          <a href="assets/cv.pdf">CV</a> -->
+          <!-- <a href="assets/cv.pdf">CV</a> -->
         </nav>
       </div>
     </header>
 
-    <!-- ===== About ===== -->
-    <section id="about">
+    <!-- ===== Bio ===== -->
+    <section id="about" class="bio">
       <p>
-        I build models and controllers that let robots handle cables and
-        other deformable linear objects. My work covers learned dynamics
-        models that predict how a cable moves, dynamic cable manipulation, and
-        the use of tactile sensing to identify a cable's physical properties
-        during manipulation and to calibrate simulation to the real cable.
+        I am a Ph.D. candidate in Mechanical Engineering at Tel Aviv University,
+        advised by Prof. Avishai Sintov in the ROB-TAU Robotics Lab. I work on
+        robot learning and perception for cables and other deformable linear
+        objects: estimating their shape from touch, learning models of how they
+        move, and using those models to manipulate them.
       </p>
       <p>
-        Before my PhD I studied Mechanical Engineering at Afeka Tel Aviv
-        Academic College of Engineering. I teach Introduction to Robotics at
-        the Faculty of Engineering, Tel Aviv University.
+        Before my Ph.D., I received an M.Sc. in Systems Engineering from Tel Aviv
+        University, where I estimated human arm pose with a wearable
+        force-myography device for human-robot collaboration. I hold a B.Sc. in
+        Mechanical Engineering from Afeka Academic College of Engineering.
       </p>
     </section>
 
-    <!-- ===== News ===== -->
-    <section id="news">
-      <h2>News</h2>
-      <ul class="news">
-        <li><time datetime="2026-10">Oct 2026</time> <span>Lecturing Introduction to Robotics at Tel Aviv University in Semester A 2026–27.</span></li>
-        <li><time datetime="2026-09">Sep 2026</time> <span><em>Predicting Cable Dynamics with Physical Attention Bias</em> was accepted to the NeurReps workshop at NeurIPS 2026.</span></li>
-      </ul>
-    </section>
-
-    <!-- ===== Research ===== -->
+    <!-- ===== Current research ===== -->
     <section id="research">
-      <h2>Research</h2>
+      <h2>Current Research</h2>
       <div class="topics">
         <article class="topic">
-          <h3>Learned cable dynamics</h3>
-          <p>Data-driven simulators that predict the motion of cables the model has never seen and stay stable over long rollouts, including when the cable contacts itself or the floor.</p>
+          <h3>Feeling the cable</h3>
+          <p>Estimating the full 3D shape of a grasped cable from tactile sensors and the robot's own pose, with no camera. I am extending this to a joint model of cable state and dynamics that uses force-sensing tactile arrays.</p>
         </article>
         <article class="topic">
           <h3>Dynamic cable manipulation</h3>
-          <p>Fast arm motions that swing or throw a cable to a target, where the robot must account for the cable's dynamics.</p>
+          <p>Swinging a held cable so that its tip strikes a 3D target, on a KUKA LBR Med 7. This includes system identification that matches the simulated cable to the real one, so that motions planned in simulation work on the robot.</p>
         </article>
         <article class="topic">
-          <h3>Tactile system identification</h3>
-          <p>Estimating a cable's stiffness and other physical parameters from tactile signals at the gripper, and using them to match simulation to the real cable.</p>
+          <h3>Cable routing</h3>
+          <p>Routing a cable through the fixtures of the ManipulationNet cable-routing board with a single arm, using a GPU-parallel simulation built for policy learning.</p>
+        </article>
+        <article class="topic">
+          <h3>Seeing cables</h3>
+          <p>Real-time segmentation of cluttered cables in camera images, fitting one smooth curve to each cable. <a href="https://github.com/rotematari/DLOSeg">Code</a></p>
         </article>
       </div>
     </section>
@@ -78,19 +72,75 @@
 
       <article class="pub">
         <div class="pub__media">
+          <img src="assets/pubs/ral2026-tactile-shape.jpg" alt="Two grippers with tactile sensors holding a cable, with predicted cable shapes overlaid" loading="lazy">
+        </div>
+        <div class="pub__text">
+          <h3>Physics-Informed Tactile-based Shape Estimation of Deformable Linear Objects</h3>
+          <p class="authors"><strong>R. Atari</strong>, S. Ashur, A. Sintov</p>
+          <p class="venue">Under review, IEEE Robotics and Automation Letters</p>
+          <p class="summary">Cameras often lose sight of a cable where the robot grasps it, or when fixtures and the robot itself block the view. We estimate the full 3D shape of a cable held between two grippers from four DIGIT tactile sensors and the robot's pose alone, using a pretrained tactile transformer and a training loss based on elastic-rod physics. On a 550 mm steel wire the model reaches 30.5 mm RMSE at about 16 Hz, versus 55 mm from gripper pose alone, and it adapts to new cables with a small amount of fine-tuning data.</p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__media">
           <video src="assets/neurreps2026/rollout.mp4" poster="assets/neurreps2026/poster.jpg"
                  autoplay muted loop playsinline preload="metadata"
                  aria-label="Model rollout of a falling cable compared with ground truth"></video>
         </div>
         <div class="pub__text">
           <h3>Predicting Cable Dynamics with Physical Attention Bias</h3>
-          <p class="authors"><strong>Rotem Atari</strong>, Avi Giuili, Maya Bechler-Speicher, Avishai Sintov</p>
-          <p class="venue">NeurReps Workshop at NeurIPS 2026, Extended Abstract Track</p>
-          <p class="summary">An additive attention bias that tells a graph-transformer cable simulator how far apart two segments are, along the cable or in space. The bias improves prediction on unseen cables. When attention is the only link between distant segments, the arc-length bias cuts prediction error by 15% and more than halves segment-length drift. Putting the two distances on separate attention heads is best or near-best on every metric.</p>
+          <p class="authors"><strong>R. Atari</strong>, A. Giuili, M. Bechler-Speicher, A. Sintov</p>
+          <p class="venue">NeurReps Workshop at NeurIPS 2026</p>
+          <p class="summary">Data-driven cable simulators must predict how cables they were not trained on move over hundreds of steps, and their errors grow where the cable touches itself or the floor. We add a distance-based bias to a graph transformer's attention and test which distance it should carry: along the cable, through space, or both on separate attention heads. Both distances on separate heads is best or near-best on every metric, and when attention is the only link between distant segments, the along-the-cable bias cuts prediction error by 15% and more than halves segment-length drift.</p>
+          <p class="pub__links"><a href="https://openreview.net/forum?id=R6KFwkK5ve">OpenReview</a></p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__media">
+          <img src="assets/pubs/isr2026-speech-to-trajectory.jpg" alt="A person gives spoken directions to a quadruped robot that walks along the described path" loading="lazy">
+        </div>
+        <div class="pub__text">
+          <h3>Speech-to-Trajectory: Learning Intuitive Verbal Guidance for Robot Motion</h3>
+          <p class="authors">E. B. Bamani, E. Nissinman, <strong>R. Atari</strong>, N. Heimann Saadon, A. Sintov</p>
+          <p class="venue">Intelligent Service Robotics, 2026</p>
+          <p class="summary">People give a robot the same instruction in many different words, and language-model systems often need fixed phrasings or careful prompts to respond reliably. We recorded spoken directions paired with the paths that followed them, expanded them with paraphrases, and trained a diffusion policy that turns a transcribed command directly into a motion path. The method was evaluated in simulation and on a real Unitree Go2 quadruped following spoken directions.</p>
           <p class="pub__links">
-            <a href="https://openreview.net/forum?id=R6KFwkK5ve">OpenReview</a>
-            <!-- Add when ready: <a href="assets/neurreps2026/paper.pdf">PDF</a> (camera-ready)
-                 <a href="https://github.com/...">Code</a> -->
+            <a href="https://doi.org/10.1007/s11370-026-00727-0">Paper</a>
+            <a href="https://arxiv.org/abs/2504.05084">arXiv</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__media">
+          <img src="assets/pubs/isr2026-oracle-grasp.jpg" alt="Pipeline in which a multimodal model selects a grasp region on an image grid for a robot arm" loading="lazy">
+        </div>
+        <div class="pub__text">
+          <h3>ORACLE-Grasp: Zero-Shot Affordance-Aligned Robotic Grasping Using Large Multimodal Models</h3>
+          <p class="authors">A. Giuili, <strong>R. Atari</strong>, A. Sintov</p>
+          <p class="venue">Intelligent Service Robotics, 2026</p>
+          <p class="summary">Service robots need to pick up objects they have never seen and hold them the way a person would, such as a knife by its handle. ORACLE-Grasp asks an off-the-shelf vision-language model, with no extra training, to describe an object's graspable parts and then to choose the best grasp region on a grid over the image, which depth data then refines. On a Franka arm with 20 everyday objects, the robot picked up the object in 88% of attempts.</p>
+          <p class="pub__links">
+            <a href="https://doi.org/10.1007/s11370-026-00707-4">Paper</a>
+            <a href="https://arxiv.org/abs/2505.08417">arXiv</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="pub__media">
+          <img src="assets/pubs/ral2025-fmg-arm-pose.jpg" alt="A person wearing a shoulder-mounted force-myography device works next to a robot arm" loading="lazy">
+        </div>
+        <div class="pub__text">
+          <h3>Human Arm Pose Estimation with a Shoulder-worn Force-Myography Device for Human-Robot Interaction</h3>
+          <p class="authors"><strong>R. Atari</strong>, E. Bamani, A. Sintov</p>
+          <p class="venue">IEEE Robotics and Automation Letters, 2025 · presented at IROS 2025</p>
+          <p class="summary">A robot sharing a workspace with a person needs to know where the person's arm is, but cameras fail when the arm is hidden or the lighting is poor. We built a shoulder-worn force-myography device with 32 force sensors that feel how the shoulder and arm muscles press against it, and a transformer that maps these readings to the positions of the elbow and wrist. In a camera-free test, a Franka arm paused whenever the user's arm crossed its path, and it responded correctly in 84% and 90% of trials across two sessions.</p>
+          <p class="pub__links">
+            <a href="https://doi.org/10.1109/LRA.2025.3539545">Paper</a>
+            <a href="https://arxiv.org/abs/2411.07644">arXiv</a>
           </p>
         </div>
       </article>
@@ -99,9 +149,12 @@
     <!-- ===== Teaching ===== -->
     <section id="teaching">
       <h2>Teaching</h2>
-      <ul class="plain">
-        <li><strong>Introduction to Robotics</strong> (0542-4621), Lecturer, Faculty of Engineering, Tel Aviv University, 2025–present</li>
+      <ul class="teaching">
+        <li><span><strong>Introduction to Robotics</strong>, Course Instructor</span><span class="when">Fall 2025, Fall 2026</span></li>
+        <li><span><strong>Computational Intelligence</strong>, Teaching Assistant</span><span class="when">Spring 2023–2026</span></li>
+        <li><span><strong>Engineering Graphics</strong>, Teaching Assistant</span><span class="when">Fall 2022, Fall 2023</span></li>
       </ul>
+      <p class="note">School of Mechanical Engineering, Tel Aviv University</p>
     </section>
 
     <footer class="footer">
