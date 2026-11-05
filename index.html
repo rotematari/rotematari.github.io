@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rotem Atari</title>
+  <meta name="description" content="Rotem Atari, PhD candidate at Tel Aviv University. Robotic manipulation of cables and other deformable linear objects, tactile sensing, and system identification.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+
+    <!-- ===== Header ===== -->
+    <header class="intro">
+      <img class="avatar" src="assets/photo.jpg" alt="Rotem Atari" width="132" height="132">
+      <div class="intro__text">
+        <h1>Rotem Atari</h1>
+        <p class="role">PhD Candidate, Tel Aviv University</p>
+        <p class="advisor">Advised by Prof. Avishai Sintov</p>
+        <nav class="links" aria-label="Contact and profiles">
+          <a href="mailto:rotematari@mail.tau.ac.il">Email</a>
+          <a href="https://github.com/rotematari">GitHub</a>
+          <!-- Add when ready:
+          <a href="https://scholar.google.com/citations?user=...">Google Scholar</a>
+          <a href="https://www.linkedin.com/in/...">LinkedIn</a>
+          <a href="assets/cv.pdf">CV</a> -->
+        </nav>
+      </div>
+    </header>
+
+    <!-- ===== About ===== -->
+    <section id="about">
+      <p>
+        I build models and controllers that let robots handle cables and
+        other deformable linear objects. My work covers learned dynamics
+        models that predict how a cable moves, dynamic cable manipulation, and
+        the use of tactile sensing to identify a cable's physical properties
+        during manipulation and to calibrate simulation to the real cable.
+      </p>
+      <p>
+        Before my PhD I studied Mechanical Engineering at Afeka Tel Aviv
+        Academic College of Engineering. I teach Introduction to Robotics at
+        the Faculty of Engineering, Tel Aviv University.
+      </p>
+    </section>
+
+    <!-- ===== News ===== -->
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news">
+        <li><time datetime="2026-10">Oct 2026</time> <span>Lecturing Introduction to Robotics at Tel Aviv University in Semester A 2026–27.</span></li>
+        <li><time datetime="2026-09">Sep 2026</time> <span><em>Predicting Cable Dynamics with Physical Attention Bias</em> was accepted to the NeurReps workshop at NeurIPS 2026.</span></li>
+      </ul>
+    </section>
+
+    <!-- ===== Research ===== -->
+    <section id="research">
+      <h2>Research</h2>
+      <div class="topics">
+        <article class="topic">
+          <h3>Learned cable dynamics</h3>
+          <p>Data-driven simulators that predict the motion of cables the model has never seen and stay stable over long rollouts, including when the cable contacts itself or the floor.</p>
+        </article>
+        <article class="topic">
+          <h3>Dynamic cable manipulation</h3>
+          <p>Fast arm motions that swing or throw a cable to a target, where the robot must account for the cable's dynamics.</p>
+        </article>
+        <article class="topic">
+          <h3>Tactile system identification</h3>
+          <p>Estimating a cable's stiffness and other physical parameters from tactile signals at the gripper, and using them to match simulation to the real cable.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Publications ===== -->
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <article class="pub">
+        <div class="pub__media">
+          <video src="assets/neurreps2026/rollout.mp4" poster="assets/neurreps2026/poster.jpg"
+                 autoplay muted loop playsinline preload="metadata"
+                 aria-label="Model rollout of a falling cable compared with ground truth"></video>
+        </div>
+        <div class="pub__text">
+          <h3>Predicting Cable Dynamics with Physical Attention Bias</h3>
+          <p class="authors"><strong>Rotem Atari</strong>, Avi Giuili, Maya Bechler-Speicher, Avishai Sintov</p>
+          <p class="venue">NeurReps Workshop at NeurIPS 2026, Extended Abstract Track</p>
+          <p class="summary">An additive attention bias that tells a graph-transformer cable simulator how far apart two segments are, along the cable or in space. The bias improves prediction on unseen cables. When attention is the only link between distant segments, the arc-length bias cuts prediction error by 15% and more than halves segment-length drift. Putting the two distances on separate attention heads is best or near-best on every metric.</p>
+          <p class="pub__links">
+            <a href="https://openreview.net/forum?id=R6KFwkK5ve">OpenReview</a>
+            <!-- Add when ready: <a href="assets/neurreps2026/paper.pdf">PDF</a> (camera-ready)
+                 <a href="https://github.com/...">Code</a> -->
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===== Teaching ===== -->
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <ul class="plain">
+        <li><strong>Introduction to Robotics</strong> (0542-4621), Lecturer, Faculty of Engineering, Tel Aviv University, 2025–present</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p>Last updated November 2026</p>
+    </footer>
+  </main>
+</body>
+</html>

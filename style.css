@@ -1,0 +1,139 @@
+/* Colors: edit these tokens to retheme the site. */
+:root {
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --text: #1d1f22;
+  --muted: #5d636b;
+  --border: #e4e1da;
+  --accent: #1f5fa8;
+  --accent-soft: #e8f0fa;
+  --media-bg: #0f1216;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121417;
+    --surface: #1a1d21;
+    --text: #e7e8ea;
+    --muted: #9aa1aa;
+    --border: #2b3036;
+    --accent: #7fb2ee;
+    --accent-soft: #1c2a3b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121417;
+  --surface: #1a1d21;
+  --text: #e7e8ea;
+  --muted: #9aa1aa;
+  --border: #2b3036;
+  --accent: #7fb2ee;
+  --accent-soft: #1c2a3b;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1 { font-size: 2.1rem; line-height: 1.15; margin: 0 0 6px; letter-spacing: -0.01em; }
+h2 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin: 0 0 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+h3 { font-size: 1.05rem; margin: 0 0 6px; line-height: 1.35; }
+
+section { margin-top: 48px; }
+p { margin: 0 0 12px; }
+
+/* Header */
+.intro { display: flex; gap: 28px; align-items: center; }
+.avatar {
+  width: 132px; height: 132px; flex: none;
+  border-radius: 50%; object-fit: cover;
+  border: 1px solid var(--border);
+}
+.avatar--initials {
+  display: grid; place-items: center;
+  background: var(--accent-soft); color: var(--accent);
+  font-size: 2.6rem; font-weight: 600; letter-spacing: 0.02em;
+}
+.role { font-size: 1.1rem; margin: 0; }
+.advisor { color: var(--muted); margin: 0 0 14px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.links a {
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: var(--surface);
+}
+.links a:hover { border-color: var(--accent); text-decoration: none; }
+
+#about { margin-top: 36px; }
+
+/* News */
+.news { list-style: none; padding: 0; margin: 0; }
+.news li { display: grid; grid-template-columns: 88px 1fr; gap: 12px; padding: 4px 0; }
+.news time { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.95rem; padding-top: 1px; }
+
+/* Research */
+.topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.topic {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.topic p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+/* Publications */
+.pub { display: grid; grid-template-columns: 260px 1fr; gap: 24px; align-items: start; margin-bottom: 28px; }
+.pub__media {
+  background: var(--media-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+.pub__media video, .pub__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.authors { margin: 0 0 2px; }
+.venue { color: var(--muted); font-style: italic; margin: 0 0 8px; }
+.summary { font-size: 0.95rem; }
+.pub__links { display: flex; gap: 14px; font-weight: 600; font-size: 0.92rem; margin: 0; }
+
+.plain { padding-left: 1.1em; margin: 0; }
+
+.footer { margin-top: 64px; color: var(--muted); font-size: 0.85rem; }
+
+/* Phone width */
+@media (max-width: 680px) {
+  .page { padding: 32px 16px 32px; }
+  .intro { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .avatar { width: 104px; height: 104px; }
+  .avatar--initials { font-size: 2rem; }
+  h1 { font-size: 1.8rem; }
+  .topics { grid-template-columns: 1fr; }
+  .pub { grid-template-columns: 1fr; gap: 14px; }
+  .news li { grid-template-columns: 76px 1fr; }
+}
